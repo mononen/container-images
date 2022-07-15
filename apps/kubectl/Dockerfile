@@ -22,6 +22,7 @@ RUN \
     dnsutils \
     jq \
     tzdata \
+    zip \
   && curl -fsSL -o /usr/local/bin/kubectl "https://dl.k8s.io/release/v${VERSION}/bin/linux/${TARGETARCH}/kubectl" \
   && chmod +x /usr/local/bin/kubectl \
   && apt-get clean \
