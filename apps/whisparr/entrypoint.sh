@@ -47,4 +47,4 @@ if [[ "${WHISPARR__LOG_LEVEL}" == "debug" || "${current_log_level}" == "debug" ]
     xmlstarlet format --omit-decl /config/config.xml
 fi
 
-exec /usr/bin/mono --debug /app/Whisparr.exe --nobrowser --data=/config ${EXTRA_ARGS}
+exec /usr/bin/mono --debug /app/Whisparr --nobrowser --data=/config ${EXTRA_ARGS}
