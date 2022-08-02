@@ -50,7 +50,7 @@ RUN \
 
 USER kah
 
-EXPOSE ${WSHIPARR__PORT}/tcp
+EXPOSE ${WHISPARR__PORT}/tcp
 
 COPY ./apps/whisparr/config.xml.tmpl /app/config.xml.tmpl
 COPY ./apps/whisparr/entrypoint.sh /entrypoint.sh
