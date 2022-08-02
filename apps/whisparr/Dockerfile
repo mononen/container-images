@@ -22,13 +22,13 @@ RUN \
     mono-complete \
     ca-certificates-mono \
     libmediainfo0v5 \
-    xmlstarlet \
-  && \
-  curl -fsSL -o /tmp/whisparr.tar.gz \
-    "https://whisparr.servarr.com/v1/update/nightly/updatefile?version=${VERSION}&os=linuxmusl&runtime=netcore&arch=x64" \
-  && tar ixzf /tmp/whisparr.tar.gz -C /app --strip-components 1 \
-  && \
-  rm -rf \
+    xmlstarlet 
+
+RUN curl -fsSL -o /tmp/whisparr.tar.gz \
+    "http://whisparr.servarr.com/v1/update/nightly/updatefile?os=linux&runtime=netcore&arch=x64"
+RUN tar xzf /tmp/whisparr.tar.gz -C /app --strip-components 1
+
+RUN rm -rf \
     /app/whisparr.Update* \
   && \
   printf "UpdateMethod=docker\nBranch=%s\nPackageVersion=%s\nPackageAuthor=[Team k8s-at-home](https://github.com/k8s-at-home)" "${WHISPARR__BRANCH}" "${VERSION}" > /app/package_info \
